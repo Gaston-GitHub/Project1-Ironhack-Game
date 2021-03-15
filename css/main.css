@@ -1,3 +1,20 @@
+/* reset */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* typograhpy */
+
 @font-face {
     font-family: "simpsonfont";
     src: url("/simpsonfont/Simpsonfont DEMO.otf") format("otf");
@@ -6,4 +23,6 @@
 body {
     font-family: "simpsonfont";
     color: blue;
+    font-size: 16px;
 }
+
