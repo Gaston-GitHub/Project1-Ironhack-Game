@@ -82,23 +82,37 @@ document.addEventListener('DOMContentLoaded', () => {
         backClick.removeEventListener("click", backClick);
     }
 
-    
+    /* gameScreen */
+
+    let gameScreenElement;
 
 
+    function gameScreen() {
+        gameScreenElement= createHtml(`<canvas id="canvas" width="1000" height="800"></canvas>`);
+        mainContentElement.appendChild(gameScreenElement);
+        startGame();
+    };
 
+    /* gameOverScreen */
 
-    
+    let gameOverScreenElement;
+    let restartGameButtonElement;
 
+    function reStartCLick() {
+        hideGameOverScreen();
+    }
 
+    function gameOverScreen() {
+        gameOverScreenElement= createHtml(`<div id="gameOverScreen>
+        <img id="logo" src="/img/tenor.gif">
+        <button class="btn-start">Restart Game</button>
+        <button class="btn-credits">Credits</button>
+      </div>`);
+    }
 
-
-
-
-
-
-
-
-
-
+    function hideGameOverScreen() {
+        gameOverScreenElement.remove();
+        restartGameButtonElement.removeEventListener("click", reStartCLick);
+        }
 
 })
