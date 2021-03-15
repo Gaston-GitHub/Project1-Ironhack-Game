@@ -30,14 +30,14 @@ body {
 
 .container {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     justify-content: center;
     background-color: white;
 }
 
 canvas {
-    background-image: url("/img/tumblr_lglw94AyUy1qa6ql2o1_500.gif");
+    background-image: url("/img/Moes_Bar.jpeg");
 }
 
 /* splashScreen */
@@ -52,7 +52,6 @@ canvas {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-  
 }
 
 #gameOver-Screen {
@@ -79,5 +78,4 @@ canvas {
     margin: 4px 2px;
     cursor: pointer;
     font-family: "simpsonfont";
-
 }

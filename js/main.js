@@ -50,7 +50,9 @@ function main() {
 
 
     function gameScreen() {
-        gameScreenElement= createHtml(`<canvas id="canvas" width="1000" height="800"></canvas>`);
+        gameScreenElement= createHtml(`<div id="game-screen">
+        <img id="gameScreen" src="/img/Moes_Bar.jpeg">`);
+
         mainContentElement.appendChild(gameScreenElement);
         startGame();
     };
@@ -59,16 +61,22 @@ function main() {
 
     let gameOverScreenElement;
     let restartGameButtonElement;
-
+``
     function reStartCLick() {
         hideGameOverScreen();
+        gameOverScreen();
     }
 
     function gameOverScreen() {
         gameOverScreenElement= createHtml(`<div id="gameOver-Screen">
-        <img id="logo" src="/img/tenor.gif">
+        <img id="logo" src="/img/ezgif.com-gif-maker (1).gif">
         <button class="btn-start">Restart Game</button>
       </div>`);
+
+      mainContentElement.appendChild(gameOverScreenElement);
+      restartGameButtonElement= gameOverScreen.getElementsByClassName("btn-start")[0];
+      startButtonElement.addEventListener("click", clickStart);
+      
     }
 
     function hideGameOverScreen() {
