@@ -1,92 +1,118 @@
-
-
-/*document.addEventListener('DOMContentLoaded', () => {
-    let game;*/
-
-    /* Helper function: to create a div element */
-function createHtml(html) {
-        const div= document.createElement('div');
-        div.innerHTML= html;
-        return div.children[0];
-    };
-
-    /* Main function: manage different instances of the game */
+'use strict'
 
 function main() {
-        let mainContentElement= document.getElementById('main-content');
+        
+    let gameWindowElement= document.querySelector('#game-window');
+    let backgroundGame= document.querySelector('body');
+    let stage;
+    let game;
     
 
     /* splashScreen */
 
-    let splashScreenElement;
-    let startButtonElement;
-    
-
-    function clickStart() {
-        hideSplashScreen();
-        gameScreen();
+    let landingElement;
+    let startGameBtn;
+    let clickStart= function() {
+         leaveLandingPage();
+         moveToGame();
     }
 
-    function splashScreen() {
-        splashScreenElement= createHtml(`<div id="splash-screen">
-            <img id="logo" src='/img/maxresdefault.jpeg'>
-            <div class="button">
-                <button class="btn-start">Start Game</button>
-            </div>`);
+    function landingPage() {
+        stage= 'landing';
 
-        mainContentElement.appendChild(splashScreenElement);
-        startButtonElement= splashScreenElement.getElementsByClassName('btn-start')[0];
-        startButtonElement.addEventListener('click', clickStart)
+        landingElement= document.createElement('div');
+        landingElement.setAttribute('id', 'landing');
+        
+        let title= document.createElement('h1');
+        title.innerText= 'homer';
+        landingElement.appendChild(title);
+        let description= document.createElement('h3')
+        description.innerText= 'la taberna de Moe';
+        landingElement.appendChild(description);
+
+        startGameBtn= document.createElement('button');
+        startGameBtn.innerText= 'Start';
+        landingElement.appendChild(startGameBtn);
+
+        gameWindowElement.appendChild(landingElement);
+
+        startGameBtn.addEventListener('click', clickStart )
+        
     }
 
-    function hideSplashScreen() {
-        splashScreenElement.remove();
-        startButtonElement.removeEventListener('click', clickStart);
+    function leaveLandingPage() {
+        startGameBtn.removeEventListener('click', clickStart);
+        landingElement.remove();
     }
 
     /* gameScreen */
 
-    let gameScreenElement;
-
-
-    function gameScreen() {
-        gameScreenElement= createHtml(`<div id="game-screen">
-        <img id="gameScreen" src="/img/Moes_Bar.jpeg">`);
-
-        mainContentElement.appendChild(gameScreenElement);
-        startGame();
-    };
+    function moveToGame() {
+        stage = 'game';
+    
+        game = new Game(gameWindowElement);
+    
+        game.onGameOver(function() {
+          leaveGame();
+          moveToGameOver();
+        })
+       }
+    
+      function leaveGame() {
+        game.destroy();
+      }
+    
+    
+    function leaveGame() {
+       game.destroy();
+    }
+    
 
     /* gameOverScreen */
 
-    let gameOverScreenElement;
-    let restartGameButtonElement;
+    let gameOverElement;
+    let playAgainBtn;
+    let clickToRestart= function() {
+        leaveGameOver();
+        moveToGame();
 
-    function reStartCLick() {
-        hideGameOverScreen();
-        gameOverScreen();
+    }
+    
+    function moveToGameOver() {
+        stage= 'gameOver';
+
+        gameOverElement= document.createElement('div');
+        gameOverElement.setAttribute('id', 'game-over');
+
+        let title= document.createElement('h5');
+        title.innerText= 'Get drunk, Homer!';
+        gameOverElement.appendChild(title);
+
+        let yourScore= document.createElement('h4');
+        yourScore.innerText= 'SCORE: ' + game.score;
+        gameOverElement.appendChild(yourScore);
+
+        playAgainBtn= document.createElement('button');
+
+        playAgainBtn.setAttribute('id', 'play-again');
+        playAgainBtn.innerHTML= 'Play again!';
+        gameOverElement.appendChild(playAgainBtn);
+
+        gameWindowElement.appendChild(gameOverElement);
+
+        playAgainBtn.addEventListener('click', clickToRestart)
+
     }
 
-    function gameOverScreen() {
-        gameOverScreenElement= createHtml(`<div id="gameOver-Screen">
-        <img id="logo" src="/img/ezgif.com-gif-maker (1).gif">
-        <button class="btn-start">Restart Game</button>
-      </div>`);
+    function leaveGameOver() {
+        playAgainBtn.removeEventListener('click', clickToRestart);
+        gameOverElement.remove();
 
-      mainContentElement.appendChild(gameOverScreenElement);
-      restartGameButtonElement= gameOverScreen.getElementsByClassName("btn-start")[0];
-      startButtonElement.addEventListener("click", clickStart);
     }
 
-    function hideGameOverScreen() {
-        gameOverScreenElement.remove();
-        restartGameButtonElement.removeEventListener("click", reStartCLick);
-        }
-
-
-splashScreen();
-
+    landingPage();
+    
+   
 }
 
-/* startApp */
-window.addEventListener("load", main);
+window.onload= main;

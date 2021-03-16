@@ -1,17 +1,15 @@
 /* reset */
 
-/*html {
+html {
     box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 *, *::before, *::after {
     box-sizing: inherit;
-}*/
+}
 
-/*body {
-    margin: 0;
-    padding: 0;
-}*/
 
 /* typograhpy */
 
@@ -20,62 +18,54 @@
     src: url("/simpsonfont/Simpsonfont DEMO.otf") format("otf");
 }
 
-body {
+html, body {
     font-family: "simpsonfont";
     color: blue;
     font-size: 16px;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
-/* layout */
 
-.container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    background-color: white;
+#game-window {
+    text-align: center;
+}
+
+#landing {
+    height: 100vh;
+    background-image: url('/img/maxresdefault_1200x630.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#game-over {
+    background-image: url('/img/gameoverscreen.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
 canvas {
-    background-image: url("/img/Moes_Bar.jpeg");
-}
-
-/* splashScreen */
-
-#splash-screen {
-    width: 1000px;
-    height: 800px;
-    margin: 50px;
-    background-size: cover;
+    background-image: url('/img/Moes_Bar.jpeg');
     background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    background-size: cover;
 }
 
-#gameOver-Screen {
-    width: 1000px;
-    height: 800px;
-    margin: 50px;
-    background-image: url("/img/tumblr_lglw94AyUy1qa6ql2o1_500.gif");
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid black;
+button, btn, #play-again {
+    background-color: transparent;
+    border-color: white;    
+    border-radius: 10px;
+    border: yellow;
+    color: red;
+    font-family: 'simpsonfont';
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    position: absolute;
+    left: 479px;
+    bottom: 325px;
 }
 
-.btn-start {
-    background-color: yellow;
-    border: none;
-    color:red;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 25px;
-    margin: 4px 2px;
-    cursor: pointer;
-    font-family: "simpsonfont";
-}
