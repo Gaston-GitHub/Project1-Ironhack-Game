@@ -61,7 +61,7 @@ function main() {
 
     let gameOverScreenElement;
     let restartGameButtonElement;
-``
+
     function reStartCLick() {
         hideGameOverScreen();
         gameOverScreen();
@@ -76,7 +76,6 @@ function main() {
       mainContentElement.appendChild(gameOverScreenElement);
       restartGameButtonElement= gameOverScreen.getElementsByClassName("btn-start")[0];
       startButtonElement.addEventListener("click", clickStart);
-      
     }
 
     function hideGameOverScreen() {
