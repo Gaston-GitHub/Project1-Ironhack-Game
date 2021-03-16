@@ -1,5 +1,6 @@
 'use strict'
 
+
 function main() {
         
     let gameWindowElement= document.querySelector('#game-window');
@@ -47,6 +48,7 @@ function main() {
 
     /* gameScreen */
 
+
     function moveToGame() {
         stage = 'game';
     
@@ -62,6 +64,7 @@ function main() {
         game.destroy();
       }
     
+     
     
     function leaveGame() {
        game.destroy();
