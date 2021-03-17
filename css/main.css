@@ -1,71 +1,71 @@
-
-
 html {
-    box-sizing: border-box;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
-
 
 /* typograhpy */
 
 @font-face {
-    font-family: "simpsonfont";
-    src: url("/simpsonfont/Simpsonfont DEMO.otf") format("otf");
+  font-family: "simpsonfont";
+  src: url("/simpsonfont/Simpsonfont DEMO.otf") format("otf");
 }
 
-html, body {
-    font-family: "simpsonfont";
-    color: blue;
-    font-size: 16px;
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
+html,
+body {
+  font-family: "simpsonfont";
+  color: blue;
+  font-size: 16px;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
-
 
 #game-window {
-    text-align: center;
+  text-align: center;
 }
 
 #landing {
-    height: 100vh;
-    background-image: url('/img/maxresdefault_1200x630.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: 100vh;
+  background-image: url("/img/maxresdefault_1200x630.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #game-over {
-    background-image: url('/img/gameoverscreen.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+  background-image: url("/img/gameoverscreen.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 canvas {
-    background-image: url('/img/Moes_Bar.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("/img/Moes_Bar.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-button, btn, #play-again {
-    background-color: transparent;
-    border-color: white;    
-    border-radius: 10px;
-    border: yellow;
-    color: red;
-    font-family: 'simpsonfont';
-    font-size: 40px;
-    font-weight: bold;
-    letter-spacing: 5px;
-    padding: 15px 30px;
-    text-transform: uppercase;
-    position: absolute;
-    left: 479px;
-    bottom: 325px;
+button,
+btn,
+#play-again {
+  background-color: transparent;
+  border-color: white;
+  border-radius: 10px;
+  border: yellow;
+  color: red;
+  font-family: "simpsonfont";
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  position: absolute;
+  left: 350px;
+  bottom: 130px;
 }
-

@@ -1,38 +1,35 @@
-'use strict'
 
 
-function main() {
+
+document.addEventListener('DOMContentLoaded', () => {
         
     let gameWindowElement= document.querySelector('#game-window');
-    let backgroundGame= document.querySelector('body');
-    let stage;
     let game;
     
 
-    /* splashScreen */
+    // ------- landing page ------
 
     let landingElement;
     let startGameBtn;
     let clickStart= function() {
          leaveLandingPage();
-         moveToGame();
+         
     }
 
     function landingPage() {
-        stage= 'landing';
 
         landingElement= document.createElement('div');
         landingElement.setAttribute('id', 'landing');
         
-        let title= document.createElement('h1');
+        const title= document.createElement('h1');
         title.innerText= 'homer';
         landingElement.appendChild(title);
-        let description= document.createElement('h3')
+        const description= document.createElement('h3')
         description.innerText= 'la taberna de Moe';
         landingElement.appendChild(description);
 
         startGameBtn= document.createElement('button');
-        startGameBtn.innerText= 'Start';
+        startGameBtn.innerText= 'Start Game';
         landingElement.appendChild(startGameBtn);
 
         gameWindowElement.appendChild(landingElement);
@@ -46,32 +43,15 @@ function main() {
         landingElement.remove();
     }
 
-    /* gameScreen */
+    // ------- game page -------
 
 
     function moveToGame() {
-        stage = 'game';
-    
-        game = new Game(gameWindowElement);
-    
-        game.onGameOver(function() {
-          leaveGame();
-          moveToGameOver();
-        })
-       }
-    
-      function leaveGame() {
-        game.destroy();
-      }
-    
-     
-    
-    function leaveGame() {
-       game.destroy();
+        
     }
     
 
-    /* gameOverScreen */
+    // ------- game over page ------
 
     let gameOverElement;
     let playAgainBtn;
@@ -82,16 +62,15 @@ function main() {
     }
     
     function moveToGameOver() {
-        stage= 'gameOver';
 
         gameOverElement= document.createElement('div');
         gameOverElement.setAttribute('id', 'game-over');
 
-        let title= document.createElement('h5');
+        const title= document.createElement('h5');
         title.innerText= 'Get drunk, Homer!';
         gameOverElement.appendChild(title);
 
-        let yourScore= document.createElement('h4');
+        const yourScore= document.createElement('h4');
         yourScore.innerText= 'SCORE: ' + game.score;
         gameOverElement.appendChild(yourScore);
 
@@ -116,6 +95,5 @@ function main() {
     landingPage();
     
    
-}
+});
 
-window.onload= main;
