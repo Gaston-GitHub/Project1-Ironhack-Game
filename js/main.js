@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     let game,
 
         start_button,
-        restart_button,
-
         splash_element,
         canvas_element,
         
@@ -42,12 +40,10 @@ document.addEventListener('DOMContentLoaded', () =>{
         main_content_element.appendChild(canvas_element);
         let canvas= document.getElementById('canvas'),
         ctx= canvas.getContext('2d');
-
-        game= new Game({
-            ctx: ctx,
-            canvas: canvas,
-            player: new Player(canvas, width, height, callback) 
-        })
+        
+        game = new Game( ctx, new Player(ctx),  canvas.width, canvas.height)
+        
+        game.start()
 
     }
 

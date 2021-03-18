@@ -52,14 +52,13 @@ button {
 #canvas {
   background-image: url("/img/Moes_Bar.jpeg");
   background-size: 100% 100%;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  width: 1350px;
-  height: 730px;
-  padding: 20px;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  display: block;
   border: 5px solid rgb(0, 0, 0);
   border-radius: 25px;
   margin-top: 0px;
   text-align: right;
-  color: white;
 }
