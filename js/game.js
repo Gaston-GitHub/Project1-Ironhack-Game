@@ -35,14 +35,24 @@ class Game {
     assignKeys() {
         document.addEventListener('keydown', (key) => {
             console.log(key.code);
+          if (key.code === 'ArrowLeft') {
+              this.player.moveLeft();
+          }
+          if (key.code === 'ArrowRight') {
+              this.player.moveRight();
+          } 
+
         })
     }
 
         
-    
+    clean() {
+        this.ctx.clearRect(0, 0, 1350, 730)
+    }
         
         
     update() {
+        this.clean();
         this.drawHomer();
         this.drawBeers();
         this.drawNonalcbeers();
