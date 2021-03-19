@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         let canvas= document.getElementById('canvas'),
         ctx= canvas.getContext('2d');
         
-        game = new Game( ctx, new Player(ctx),  canvas.width, canvas.height)
+        game = new Game( ctx, new Player(ctx), new Beers(ctx), new Donuts(ctx), new NonAlcBeers(ctx),  canvas.width, canvas.height)
         
         game.start()
 

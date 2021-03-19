@@ -1,12 +1,16 @@
 class Game {
-    constructor(ctx, player, width, height) {
+    constructor(ctx, player, beers, donuts, nonAlcbeers, width, height) {
         
         this.ctx = ctx;
         this.width= width;
         this.heigh= height; 
         
-        this.player = player
+        this.player = player;
+        this.beers = beers;
+        this.donuts = donuts;
+        this.nonAlcbeers = nonAlcbeers;
         console.log(this.player);
+        console.log(this.beers);
     }
 
     drawHomer() {
@@ -21,14 +25,22 @@ class Game {
     }
 
     drawBeers() {
+       this.ctx.fillStyle = 'yellow'
 
+       this.ctx.fillRect(this.beers.x, this.beers.y, 30, 30)
     }
 
     drawNonalcbeers() {
+        this.ctx.fillStyle = 'black'
+
+        this.ctx.fillRect(this.nonAlcbeers.x, this.nonAlcbeers.y, 30, 30)
 
     }
 
     drawDonuts() {
+        this.ctx.fillStyle = 'pink'
+
+        this.ctx.fillRect(this.donuts.x, this.donuts.y, 30, 30)
 
     }
     

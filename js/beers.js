@@ -1,10 +1,9 @@
 
-class Player {
+class Beers {
     constructor(ctx) {
         this.ctx= ctx;
         this.x = 725;
-        this.y = 600;
-        
+        this.y = 100;
     }
 
     moveLeft() {
@@ -12,8 +11,7 @@ class Player {
     }
 
     moveRight() {
-        this.x = this.x + 10 
+        this.y = this.y + 10
     }
-
 
 }
