@@ -2,8 +2,8 @@
 class Donuts {
     constructor(ctx) {
         this.ctx= ctx;
-        this.x = 625;
-        this.y = 100;
+        this.x = 1350;
+        this.y = 730;
     }
 
     moveLeft() {

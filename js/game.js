@@ -27,20 +27,21 @@ class Game {
     drawBeers() {
        this.ctx.fillStyle = 'yellow'
 
-       this.ctx.fillRect(this.beers.x, this.beers.y, 30, 30)
+       this.ctx.fillRect((Math.random() * this.beers.x), (Math.random() * this.beers.y), 30, 30)
+        
     }
 
     drawNonalcbeers() {
         this.ctx.fillStyle = 'black'
 
-        this.ctx.fillRect(this.nonAlcbeers.x, this.nonAlcbeers.y, 30, 30)
+        this.ctx.fillRect((Math.random() * this.nonAlcbeers.x), (Math.random() * this.nonAlcbeers.y), 30, 30)
 
     }
 
     drawDonuts() {
         this.ctx.fillStyle = 'pink'
 
-        this.ctx.fillRect(this.donuts.x, this.donuts.y, 30, 30)
+        this.ctx.fillRect((Math.random() * this.donuts.x), (Math.random() * this.donuts.y), 30, 30)
 
     }
     
