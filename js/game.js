@@ -1,14 +1,14 @@
 class Game {
-    constructor(ctx, player, beers, donuts, nonAlcbeers, width, height) {
+    constructor(ctx, player, donuts, nonAlcbeers, width, height) {
         
         this.ctx = ctx;
         this.width= width;
         this.heigh= height; 
         
         this.player = player;
-        this.beers = beers;
-        this.donuts = donuts;
-        this.nonAlcbeers = nonAlcbeers;
+        this.beers = [new Beers(ctx), new Beers(ctx), new Beers(ctx)];
+        this.donuts = [new Donuts(ctx), new Donuts(ctx), new Donuts(ctx)];
+        this.nonAlcbeers = [new NonAlcBeers(ctx), new NonAlcBeers(ctx), new NonAlcBeers(ctx)];
         console.log(this.player);
         console.log(this.beers);
     }
@@ -22,21 +22,17 @@ class Game {
         //     this.ctx.drawImage(img, 0, 0);
         // });
         // img.src= '/img/images (6).png';
+
+
     }
-
-    drawBeers() {
-       this.ctx.fillStyle = 'yellow'
-
-       this.ctx.fillRect((Math.random() * this.beers.x), (Math.random() * this.beers.y), 30, 30)
         
-    }
+    
+    // drawNonalcbeers() {
+    //     this.ctx.fillStyle = 'black'
 
-    drawNonalcbeers() {
-        this.ctx.fillStyle = 'black'
+    //     this.ctx.fillRect((Math.random() * this.nonAlcbeers.x), (Math.random() * this.nonAlcbeers.y), 30, 30)
 
-        this.ctx.fillRect((Math.random() * this.nonAlcbeers.x), (Math.random() * this.nonAlcbeers.y), 30, 30)
-
-    }
+    // }
 
     drawDonuts() {
         this.ctx.fillStyle = 'pink'
@@ -65,17 +61,39 @@ class Game {
         
         
     update() {
+        console.log('update');
         this.clean();
         this.drawHomer();
-        this.drawBeers();
-        this.drawNonalcbeers();
-        this.drawDonuts();
+        this.beers.forEach(beer => {
+            beer.draw();
+            collides_beers();
+        });
+        this.donuts.forEach(donuts => {
+            donuts.draw();
+            
+        });
+        this.nonAlcbeers.forEach(nonAlcbeers => {
+            nonAlcbeers.draw()
+        });
+        
+        
+        // this.drawNonalcbeers();
+        // this.drawDonuts();
         window.requestAnimationFrame(this.update.bind(this))
     }
 
     
     start() {
         this.assignKeys()
+        this.beers.forEach(beer => {
+            beer.move()
+        });
+        this.donuts.forEach(donuts => {
+            donuts.move()
+        });
+        this.nonAlcbeers.forEach(nonAlcbeers => {
+            nonAlcbeers.move()
+        });
         window.requestAnimationFrame(this.update.bind(this))
     }
     
