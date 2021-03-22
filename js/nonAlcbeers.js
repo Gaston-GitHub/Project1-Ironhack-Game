@@ -5,6 +5,7 @@ class NonAlcBeers {
         this.x = Math.random() * 1350;
         this.y = 0;
         this.setInterval = undefined;
+        this.size = 10;
     }
 
     move() {

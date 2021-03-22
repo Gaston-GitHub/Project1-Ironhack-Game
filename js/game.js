@@ -49,7 +49,8 @@ class Game {
 
         this.clean();
         this.drawHomer();
-        this.checkCollisions();  
+        this.checkBeerCollisions();
+        this.checkDonutsCollision();  
         this.drawScore();  
         
         
@@ -89,17 +90,32 @@ class Game {
     
 
 
-    checkCollisions() {
+    checkBeerCollisions() {
         console.log('checkCollisions')
     this.beers.forEach(function (beer) {
       if (this.player.didCollide(beer)) {
 
-        this.score += 10; 
-
-        
+        this.score += 10;   
       }
+   
     }, this);
   }
+
+    checkDonutsCollision() {
+        this.donuts.forEach(function(donut) {
+            if(this.player.didCollide(donut)) {
+                this.score += 20;
+            }
+        }, this);
+    }
+
+    checkNonAlcBeerCollision() {
+        this.nonAlcbeers.forEach(function(nonAlcbeer){
+            if(this.player.didCollide(nonAlcbeer)) {
+                    gameOver;
+            }
+        }, this);
+    }
 
     drawScore() {
     this.ctx.font = "50px simpsonfont";
