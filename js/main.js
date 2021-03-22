@@ -36,7 +36,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     const game_screen = () => {
-        canvas_element= create_html(`<canvas id="canvas" width= "1350" height= "730"></canvas>`);
+        canvas_element= create_html(`<canvas id="canvas" width= "1350" height= "730">
+       </canvas>`);
+       
         main_content_element.appendChild(canvas_element);
         let canvas= document.getElementById('canvas'),
         ctx= canvas.getContext('2d');

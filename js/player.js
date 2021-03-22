@@ -1,9 +1,10 @@
 
 class Player {
-    constructor(ctx) {
+    constructor(ctx, lives) {
         this.ctx= ctx;
         this.x = 725;
         this.y = 700;
+        this.size = 10;
         
     }
 
@@ -15,27 +16,32 @@ class Player {
         this.x = this.x + 10 
     }
 
-    collides_beers() {
 
-        const collisionLeft = this.player.x <= this.beers.x;
-        console.log(collisionLeft)
-        const collisionRight = this.player.x >= this.beers.y;
-        console.log(collisionRight)
-        const collisionTop = this.player.y <= this.beers.y;
-        console.log(collisionTop)
+    didCollide(beer) {
+        const playerLeft = this.x;
+        const playerRight = this.x + this.size
+        const playerTop = this.y;
+        const playerBottom = this.y + this.size;
+        
+    
+        const beerLeft = beer.x;
+        const beerRight = beer.x + beer.size;
+        const beerTop = beer.y;
+        const beerBottom = beer.y + beer.size;
+        
+        const crossLeft = beerLeft <= playerRight && beerLeft >= playerLeft;
+        const crossRight = beerRight >= playerLeft && beerRight <= playerRight;
 
-        const collidedCount = 0;
-        for (i = 0; i < beers.length; i++) {
-            let beers = beers[i];
-
-            if (collisionTop && collisionLeft && collisionRight) {
-                collidedCount++;
-                this.beers.splice(i, 1);
-                
-            } else i++;
+        const crossTop = beerTop <= playerBottom && beerTop >= playerTop;
+        const crossBottom = beerBottom >= playerTop && beerBottom <= playerBottom;
+    
+    
+        if ((crossLeft || crossRight) && (crossTop || crossBottom)) {
+          return true;
+        } else {
+          return false;
         }
-    }
-            
+      }     
                 
 
                 

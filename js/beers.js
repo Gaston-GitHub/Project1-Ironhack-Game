@@ -4,7 +4,9 @@ class Beers {
         this.ctx= ctx;
         this.x = Math.random() * 1350; 
         this.y = 0; 
-        this.interval = undefined
+        this.interval = undefined;
+        this.size = 10;
+               
     }
 
     move() {
@@ -24,6 +26,12 @@ class Beers {
             return this.y = 0;
         }  
      }
+
+     
+     
+     
+            
+        
 
     
 }

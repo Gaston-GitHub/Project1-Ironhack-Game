@@ -9,36 +9,20 @@ class Game {
         this.beers = [new Beers(ctx), new Beers(ctx), new Beers(ctx)];
         this.donuts = [new Donuts(ctx), new Donuts(ctx), new Donuts(ctx)];
         this.nonAlcbeers = [new NonAlcBeers(ctx), new NonAlcBeers(ctx), new NonAlcBeers(ctx)];
-        console.log(this.player);
-        console.log(this.beers);
-    }
+    
+        this.score = 0;
+        this.timer = 40;
+     }
 
     drawHomer() {
         this.ctx.fillStyle = 'red'
-        
         this.ctx.fillRect(this.player.x, this.player.y, 30, 30 )
-        // const img= new Image();
-        // img.addEventListener('load', () => {
-        //     this.ctx.drawImage(img, 0, 0);
-        // });
-        // img.src= '/img/images (6).png';
-
 
     }
         
-    
-    // drawNonalcbeers() {
-    //     this.ctx.fillStyle = 'black'
-
-    //     this.ctx.fillRect((Math.random() * this.nonAlcbeers.x), (Math.random() * this.nonAlcbeers.y), 30, 30)
-
-    // }
-
     drawDonuts() {
         this.ctx.fillStyle = 'pink'
-
         this.ctx.fillRect((Math.random() * this.donuts.x), (Math.random() * this.donuts.y), 30, 30)
-
     }
     
     assignKeys() {
@@ -62,29 +46,35 @@ class Game {
         
     update() {
         console.log('update');
+
         this.clean();
         this.drawHomer();
+        this.checkCollisions();  
+        this.drawScore();  
+        
+        
         this.beers.forEach(beer => {
-            beer.draw();
-            collides_beers();
+            beer.draw();   
         });
+
         this.donuts.forEach(donuts => {
-            donuts.draw();
-            
+            donuts.draw();     
         });
+        
         this.nonAlcbeers.forEach(nonAlcbeers => {
             nonAlcbeers.draw()
         });
+
         
-        
-        // this.drawNonalcbeers();
-        // this.drawDonuts();
         window.requestAnimationFrame(this.update.bind(this))
     }
 
     
     start() {
+
         this.assignKeys()
+
+
         this.beers.forEach(beer => {
             beer.move()
         });
@@ -96,6 +86,32 @@ class Game {
         });
         window.requestAnimationFrame(this.update.bind(this))
     }
+    
+
+
+    checkCollisions() {
+        console.log('checkCollisions')
+    this.beers.forEach(function (beer) {
+      if (this.player.didCollide(beer)) {
+
+        this.score += 10; 
+
+        
+      }
+    }, this);
+  }
+
+    drawScore() {
+    this.ctx.font = "50px simpsonfont";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText("Score: "+ this.score, 60, 60);
+}
+
+    
+
+
+
+    
     
 }
 
