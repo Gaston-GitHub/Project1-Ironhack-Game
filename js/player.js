@@ -84,7 +84,7 @@ class Player {
         const playerBottom = this.y + this.size;
 
         const nonAlcBeerLeft = nonAlcbeer.x;
-        const nonAlcBeerRight = nonAlcbeer + nonAlcbeer.size;
+        const nonAlcBeerRight = nonAlcbeer.x + nonAlcbeer.size;
 
         const nonAlcBeerTop = nonAlcbeer.y;
         const nonAlcBeerBottom = nonAlcbeer.y + nonAlcbeer.size;

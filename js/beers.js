@@ -21,7 +21,7 @@ class Beers {
     draw() {
         this.ctx.fillStyle = 'yellow'
         this.ctx.fillRect(this.x, this.y, 30, 30)
-        console.log('draw', this.y);
+        
         if (this.y > 690 ) {
             return this.y = 0;
         }  

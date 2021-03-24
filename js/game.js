@@ -1,17 +1,21 @@
 class Game {
-    constructor(ctx, player, donuts, nonAlcbeers, width, height) {
+    constructor(ctx, player, width, height, callback) {
         
         this.ctx = ctx;
-        this.width= width;
-        this.heigh= height; 
+        this.width = width;
+        this.heigh = height; 
+        this.cb = callback;
         
         this.player = player;
         this.beers = [new Beers(ctx), new Beers(ctx), new Beers(ctx)];
         this.donuts = [new Donuts(ctx), new Donuts(ctx), new Donuts(ctx)];
         this.nonAlcbeers = [new NonAlcBeers(ctx), new NonAlcBeers(ctx), new NonAlcBeers(ctx)];
+
+        this.gameIsOver = false;
     
         this.score = 0;
         this.timer = 40;
+       
      }
 
     drawHomer() {
@@ -27,7 +31,7 @@ class Game {
     
     assignKeys() {
         document.addEventListener('keydown', (key) => {
-            console.log(key.code);
+            
           if (key.code === 'ArrowLeft') {
               this.player.moveLeft();
           }
@@ -45,13 +49,15 @@ class Game {
         
         
     update() {
-        console.log('update');
+    
 
         this.clean();
         this.drawHomer();
         this.checkBeerCollisions();
-        this.checkDonutsCollision();  
+        this.checkDonutsCollision(); 
+        this.checkNonAlcBeerCollision();
         this.drawScore();  
+    
         
         
         this.beers.forEach(beer => {
@@ -66,6 +72,12 @@ class Game {
             nonAlcbeers.draw()
         });
 
+        if (this.checkNonAlcBeerCollision()) {
+            this.Game.stop();
+            this.cb();
+            return;
+        }
+    
         
         window.requestAnimationFrame(this.update.bind(this))
     }
@@ -91,7 +103,7 @@ class Game {
 
 
     checkBeerCollisions() {
-        console.log('checkCollisions')
+        
     this.beers.forEach(function (beer) {
       if (this.player.didCollide(beer)) {
 
@@ -112,7 +124,9 @@ class Game {
     checkNonAlcBeerCollision() {
         this.nonAlcbeers.forEach(function(nonAlcbeer){
             if(this.player.didCollide(nonAlcbeer)) {
-                    gameOver;
+                this.endGame();
+                
+
             }
         }, this);
     }
@@ -121,7 +135,16 @@ class Game {
     this.ctx.font = "50px simpsonfont";
     this.ctx.fillStyle = "white";
     this.ctx.fillText("Score: "+ this.score, 60, 60);
-}
+    }
+
+    
+    endGame() {
+        this.gameIsOver = true;
+        this.cb(); 
+        
+    }
+
+
 
     
 
