@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     const build_splash = () => {
         splash_element = create_html(`<div id="splash_container">
-        <h1>Title</h1>
-        <p>Instructions</p>
+        <h1>Arcade Homer</h1>
+        <p>Use arrows left and right <br> to move Homer</p>
         <button id="start_button">Start Game</button>
         </div>`);
 

@@ -19,15 +19,14 @@ class Game {
      }
 
     drawHomer() {
-        this.ctx.fillStyle = 'red'
-        this.ctx.fillRect(this.player.x, this.player.y, 30, 30 )
+        
+
+        const homerImg = new Image();
+        homerImg.src = '/img/homer-simpson-rock-on-psd-409560.png';
+        this.ctx.drawImage(homerImg, this.player.x, this.player.y, 200, 200 )
 
     }
         
-    drawDonuts() {
-        this.ctx.fillStyle = 'pink'
-        this.ctx.fillRect((Math.random() * this.donuts.x), (Math.random() * this.donuts.y), 30, 30)
-    }
     
     assignKeys() {
         document.addEventListener('keydown', (key) => {
@@ -133,7 +132,7 @@ class Game {
 
     drawScore() {
     this.ctx.font = "50px simpsonfont";
-    this.ctx.fillStyle = "white";
+    this.ctx.fillStyle = "yellow";
     this.ctx.fillText("Score: "+ this.score, 60, 60);
     }
 

@@ -1,10 +1,10 @@
 
 class Player {
-    constructor(ctx, lives) {
+    constructor(ctx) {
         this.ctx= ctx;
         this.x = 725;
-        this.y = 700;
-        this.size = 10;
+        this.y = 540;
+        this.size = 80;
         
     }
 

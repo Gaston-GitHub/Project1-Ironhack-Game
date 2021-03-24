@@ -5,7 +5,7 @@ class Beers {
         this.x = Math.random() * 1350; 
         this.y = 0; 
         this.interval = undefined;
-        this.size = 10;
+        this.size = 80;
                
     }
 
@@ -19,8 +19,11 @@ class Beers {
     }
 
     draw() {
-        this.ctx.fillStyle = 'yellow'
-        this.ctx.fillRect(this.x, this.y, 30, 30)
+       
+
+        const beerImg = new Image();
+        beerImg.src = '/img/duffpng.png';
+        this.ctx.drawImage(beerImg, this.x, this.y, 70, 70)
         
         if (this.y > 690 ) {
             return this.y = 0;

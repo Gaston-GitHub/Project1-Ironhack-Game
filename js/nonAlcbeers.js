@@ -5,7 +5,8 @@ class NonAlcBeers {
         this.x = Math.random() * 1350;
         this.y = 0;
         this.setInterval = undefined;
-        this.size = 10;
+        this.size = 80;
+        
     }
 
     move() {
@@ -17,8 +18,10 @@ class NonAlcBeers {
     }
 
     draw() {
-        this.ctx.fillStyle = 'black'
-        this.ctx.fillRect(this.x, this.y, 30, 30)
+        
+        const elioImg = new Image();
+        elioImg.src = '/img/elio.png';
+        this.ctx.drawImage(elioImg, this.x, this.y, 70, 70)
 
         if(this.y > 690) {
             return this.y = 0
