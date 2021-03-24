@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', () =>{
     }
 
     const destroy_gameOver = () => {
+        restart_button.removeEventListener('click', destroy_gameOver);
+        gameOver_element.remove();
+        build_splash();
         
     }
 
