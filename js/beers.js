@@ -22,7 +22,7 @@ class Beers {
        
 
         const beerImg = new Image();
-        beerImg.src = '/img/duffpng.png';
+        beerImg.src = '/img/oie_transparent (2).png';
         this.ctx.drawImage(beerImg, this.x, this.y, 70, 70)
         
         if (this.y > 690 ) {

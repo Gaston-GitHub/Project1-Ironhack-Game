@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         splash_element = create_html(`<div id="splash_container">
         <h1>Arcade Homer</h1>
         <p>Use arrows left and right <br> to move Homer</p>
-        <button id="start_button">Start Game</button>
+        <button id="start_button">Click here to Start Game</button>
         </div>`);
 
         main_content_element.appendChild(splash_element);
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () =>{
           <h1>Game Over</h1>
           <p>You scored
             <span id="final_score"></span> points.</p>
-          <button id="restart_button">Back to Start</button>
+          <button id="restart_button">Click here to Start Again</button>
         </div>`);
 
         main_content_element.appendChild(gameOver_element);
