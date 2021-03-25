@@ -22,7 +22,7 @@ class Donuts {
     draw() {
        
         const donutsImg = new Image();
-        donutsImg.src = '/img/oie donuts.png';
+        donutsImg.src = '../img/oie donuts.png';
         this.ctx.drawImage(donutsImg, this.x, this.y, 70, 70)
 
         if(this.y > 690) {
