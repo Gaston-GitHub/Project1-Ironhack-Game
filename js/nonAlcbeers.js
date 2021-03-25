@@ -1,6 +1,8 @@
 
 class NonAlcBeers {
+
     constructor(ctx) {
+        
         this.ctx= ctx;
         this.x = Math.random() * 1350;
         this.y = 0;

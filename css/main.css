@@ -1,4 +1,4 @@
-/* ----- TYPOGRAPHY ---- */
+/* ----- typography ---- */
 @font-face {
   font-family: "simpsonfont";
   src: url("/simpsonfont/Simpsonfont DEMO.otf") format("otf");
@@ -8,6 +8,14 @@ h1 {
   font-size: 70px;
   font-family: "simpsonfont";
   src: url("/simposonfont/Simpsonfont DEMO.otf") format("otf");
+  color: white;
+}
+
+h2 {
+  font-size: 40px;
+  font-family: "simpsonfont";
+  src: url("/simposonfont/Simpsonfont DEMO.otf") format("otf");
+  color: white;
 }
 
 p {
@@ -17,7 +25,7 @@ p {
   color: white;
 }
 
-/* ----- SPLASH SCREEN ----- */
+/* ----- splash screen ---- */
 
 #splash_container {
   background-image: url("/img/3702359.jpeg");
@@ -28,14 +36,14 @@ p {
   height: 730px;
   text-align: center;
   padding: 20px;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid white;
   border-radius: 5px;
   margin-top: 0px;
   text-align: left;
   color: yellow;
 }
 
-/* ----- START BUTTON ----- */
+/* ----- stat button ----- */
 
 button {
   background-size: cover;
@@ -46,10 +54,10 @@ button {
   font-family: "simpsonfont";
   src: url("/simposonfont/Simpsonfont DEMO.otf") format("otf");
   font-size: 40px;
-  color: red;
+  color: yellow;
 }
 
-/* ----- CANVAS ----- */
+/* ----- canvas ----- */
 
 #canvas {
   background-image: url("/img/Moes_Bar.jpeg");
@@ -59,7 +67,7 @@ button {
   margin-right: auto;
   margin-bottom: 0;
   display: block;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid white;
   border-radius: 5px;
   margin-top: 0px;
   text-align: left;
@@ -74,7 +82,7 @@ button {
   height: 730px;
   text-align: center;
   padding: 20px;
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid white;
   border-radius: 5px;
   margin-top: 0px;
   text-align: right;

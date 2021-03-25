@@ -18,6 +18,7 @@ class Player {
 
 
     didCollide(beer) {
+
         const playerLeft = this.x;
         const playerRight = this.x + this.size
         const playerTop = this.y;
@@ -38,19 +39,16 @@ class Player {
         const crossBeerTop = beerTop <= playerBottom && beerTop >= playerTop;
         const crossBeerBottom = beerBottom >= playerTop && beerBottom <= playerBottom;
 
-        
-    
-    
         if ((crossBeerLeft || crossBeerRight) && (crossBeerTop || crossBeerBottom)) {
           return true;
         } else {
           return false;
         };
-
-        
+ 
       }    
       
       didCollide(donut) {
+
         const playerLeft = this.x;
         const playerRight = this.x + this.size
         const playerTop = this.y;
@@ -78,6 +76,7 @@ class Player {
       }
 
       didCollide(nonAlcbeer) {
+
         const playerLeft = this.x;
         const playerRight = this.x + this.size
         const playerTop = this.y;
@@ -100,9 +99,6 @@ class Player {
         } else {
           return false;
         };
-
-        
-
 
       }
                 

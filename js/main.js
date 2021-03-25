@@ -33,20 +33,19 @@ document.addEventListener('DOMContentLoaded', () =>{
     
 
     const build_splash = () => {
+
         splash_element = create_html(`<div id="splash_container">
-        <h1>Arcade Homer</h1>
-        <p>Use arrows left and right <br> to move Homer</p>
-        <button id="start_button">Click here to Start Game</button>
+        <h1>Arcade Homer <br><h2>Version Beta 1.0<h2></h1>
+        <p>Use arrows left and right to move Homer</p>
+        <button id="start_button">Click here to<br> Start Game</button>
         </div>`);
 
         main_content_element.appendChild(splash_element);
 
         start_button= document.getElementById('start_button');
         start_button.addEventListener('click', destroy_splash);
-
     }
 
-    
     const game_screen = () => {
         canvas_element= create_html(`<canvas id="canvas" width= "1350" height= "730">
        </canvas>`);
@@ -58,8 +57,6 @@ document.addEventListener('DOMContentLoaded', () =>{
         game = new Game( ctx, new Player(ctx),  canvas.width, canvas.height, endGame)
         
         game.start();
-
-
     }
 
     const gameOverScreen = () => {
@@ -68,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () =>{
           <h1>Game Over</h1>
           <p>You scored
             <span id="final_score"></span> points.</p>
-          <button id="restart_button">Click here to Start Again</button>
+          <button id="restart_button">Click here to Start</button>
         </div>`);
 
         main_content_element.appendChild(gameOver_element);
@@ -80,9 +77,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         restart_button.addEventListener('click', destroy_gameOver) ;
 
         canvas.style = 'display: none';
-        gameOver_element.style = 'display: block';
-
-        
+        gameOver_element.style = 'display: block';     
     }
 
     
@@ -90,13 +85,8 @@ document.addEventListener('DOMContentLoaded', () =>{
 
     const endGame = () => {
         canvas_element.remove();
-        gameOverScreen();
-    
-        
-    }
-    
-    
-   
+        gameOverScreen();      
+    }   
 })
 
 
