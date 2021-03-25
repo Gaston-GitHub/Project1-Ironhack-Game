@@ -15,19 +15,17 @@ class Game {
     
         this.score = 0;
         this.timer = 40;
-        
-       
+         
      }
 
     drawHomer() {
         
         const homerImg = new Image();
         homerImg.src = '/img/homer-simpson-rock-on-psd-409560.png';
-        this.ctx.drawImage(homerImg, this.player.x, this.player.y, 200, 200 )
+        this.ctx.drawImage(homerImg, this.player.x, this.player.y, 200, 190 )
 
     }
-
-        
+ 
     assignKeys() {
 
         document.addEventListener('keydown', (key) => {
@@ -46,8 +44,7 @@ class Game {
 
         this.ctx.clearRect(0, 0, 1350, 730)
     }
-        
-        
+            
     update() {
     
         this.clean();
@@ -56,6 +53,7 @@ class Game {
         this.checkDonutsCollision(); 
         this.checkNonAlcBeerCollision();
         this.drawScore(); 
+        
          
     
         this.beers.forEach(beer => {
@@ -129,7 +127,8 @@ class Game {
 
     this.ctx.font = "50px simpsonfont";
     this.ctx.fillStyle = "yellow";
-    this.ctx.fillText("Score: "+ this.score, 60, 60);
+    this.ctx.fillText("Score: "+ this.score, 130, 60);
+    this.ctx.fillText("Timer: "+ this.timer, 1000, 60);
     }
 
     endGame() {
@@ -138,6 +137,17 @@ class Game {
         this.cb(); 
         
     } 
+
+    /*timer() {
+        const timeleft = 40; 
+        const downloadTimer = setInterval(function(){
+            if(timeleft)
+        })
+    }*/
+
+
+    
+
     
 }
 
