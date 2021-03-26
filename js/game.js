@@ -21,7 +21,7 @@ class Game {
     drawHomer() {
         
         const homerImg = new Image();
-        homerImg.src = '/img/homer-simpson-rock-on-psd-409560.png';
+        homerImg.src = '/../img/homer-simpson-rock-on-psd-409560.png';
         this.ctx.drawImage(homerImg, this.player.x, this.player.y, 200, 190 )
 
     }

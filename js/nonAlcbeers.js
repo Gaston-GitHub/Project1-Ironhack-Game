@@ -22,7 +22,7 @@ class NonAlcBeers {
     draw() {
         
         const elioImg = new Image();
-        elioImg.src = '/img/elio.png';
+        elioImg.src = '/../img/elio.png';
         this.ctx.drawImage(elioImg, this.x, this.y, 70, 70)
 
         if(this.y > 690) {
