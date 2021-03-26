@@ -14,7 +14,7 @@ class Game {
         this.gameIsOver = false;
     
         this.score = 0;
-        this.timer = 40;
+        this.timer= 0;
          
      }
 
@@ -54,6 +54,7 @@ class Game {
         this.checkNonAlcBeerCollision();
         this.drawScore(); 
         
+        
          
     
         this.beers.forEach(beer => {
@@ -80,7 +81,11 @@ class Game {
     
     start() {
 
-        this.assignKeys()
+        
+
+        this.assignKeys();
+
+        //this.startTimer();
 
         this.beers.forEach(beer => {
             beer.move()
@@ -138,11 +143,20 @@ class Game {
         
     } 
 
-    /*timer() {
-        const timeleft = 40; 
-        const downloadTimer = setInterval(function(){
-            if(timeleft)
-        })
+    /*startTimer() {
+        console.log('startTimer')
+        let timeleft = 40; 
+        let downloadTimer = setInterval(function(){
+            if(timeleft <= 0) {
+                clearInterval(downloadTimer);
+                document.getElementById('countdown').innerHTML = 'Finished';
+
+            } else {
+                document.getElementById('countdown').innerHTML = timeleft + "seconds remaining";
+
+            }
+            timeleft -= 1;
+        }, 1000)
     }*/
 
 
